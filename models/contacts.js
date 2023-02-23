@@ -43,7 +43,10 @@ const addContact = async (body) => {
   return contact;
 };
 
-const updateContact = async (contactId, body) => {};
+const updateContact = async (contactId, body) => {
+  // const contact = await getContactById(contactId);
+  // const newContact = await
+};
 
 module.exports = {
   listContacts,

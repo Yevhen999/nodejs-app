@@ -23,7 +23,7 @@ router.get("/:contactId", async (req, res, next) => {
 });
 
 router.post("/", async (req, res, next) => {
-  const contact = addContact(req.body);
+  const contact = await addContact(req.body);
   res.send(contact);
 });
 
