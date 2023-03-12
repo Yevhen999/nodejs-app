@@ -4,10 +4,12 @@ const { HttpError, ctrlWrapper } = require("../helpers");
 
 const allContacts = async (req, res) => {
   const { _id: owner } = req.user;
-  const result = await Contact.find(
-    { owner },
-    "-createdAt -updatedAt"
-  ).populate("owner", "email");
+  const { page = 1, limit = 10 } = req.query;
+  const skip = (page - 1) * limit;
+  const result = await Contact.find({ owner }, "-createdAt -updatedAt", {
+    skip,
+    limit,
+  }).populate("owner", "email");
   res.json(result);
 };
 
