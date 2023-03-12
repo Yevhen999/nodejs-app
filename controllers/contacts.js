@@ -1,7 +1,6 @@
 const { Contact } = require("../models/contact");
 
-const { HttpError } = require("../helpers");
-const { ctrlWrapper } = require("../helpers");
+const { HttpError, ctrlWrapper } = require("../helpers");
 
 const allContacts = async (req, res) => {
   const result = await Contact.find();
